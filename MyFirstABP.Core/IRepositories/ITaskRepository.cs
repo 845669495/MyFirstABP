@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MyFirstABP.EntityFramework.Repositories
+namespace MyFirstABP.IRepositories
 {
     public interface ITaskRepository : IRepository<Task, long>
     {

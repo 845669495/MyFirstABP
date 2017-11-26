@@ -169,6 +169,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IRepositories\ITaskRepository.cs" />
     <Compile Include="MyFirstABPConsts.cs" />
     <Compile Include="MyFirstABPCoreModule.cs" />
     <Compile Include="Person.cs" />

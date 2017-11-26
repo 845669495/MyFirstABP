@@ -2,7 +2,7 @@
 using Abp.Domain.Repositories;
 using AutoMapper;
 using MyFirstABP.DTO;
-using MyFirstABP.EntityFramework.Repositories;
+using MyFirstABP.IRepositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Abp.EntityFramework;
 using Abp.Collections.Extensions;
 using System.Data.Entity;
+using MyFirstABP.IRepositories;
 
 namespace MyFirstABP.EntityFramework.Repositories
 {

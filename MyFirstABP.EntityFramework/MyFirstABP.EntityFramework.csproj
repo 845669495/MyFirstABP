@@ -185,7 +185,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EntityFramework\MyFirstABPDbContext.cs" />
-    <Compile Include="EntityFramework\Repositories\ITaskRepository.cs" />
     <Compile Include="EntityFramework\Repositories\MyFirstABPRepositoryBase.cs" />
     <Compile Include="EntityFramework\Repositories\TaskRepository.cs" />
     <Compile Include="Migrations\201711260844211_1.cs" />
