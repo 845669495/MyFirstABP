@@ -1,4 +1,5 @@
-﻿using Abp.AutoMapper;
+﻿using Abp.Application.Services.Dto;
+using Abp.AutoMapper;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 namespace MyFirstABP.DTO
 {
     [AutoMapFrom(typeof(Task))]
-    public class TaskDto
+    public class TaskDto : EntityDto
     {
         public int? AssignedPersonId { get; set; }
 

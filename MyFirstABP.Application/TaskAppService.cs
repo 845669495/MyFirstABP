@@ -1,4 +1,5 @@
 ﻿using Abp.Application.Services;
+using Abp.Authorization;
 using Abp.Domain.Repositories;
 using AutoMapper;
 using MyFirstABP.DTO;
@@ -37,6 +38,7 @@ namespace MyFirstABP
             _taskRepository.Insert(task);
         }
 
+        [AbpAuthorize("Administration.UserManagement.CreateUser")]
         public GetTasksOutput GetTasks(GetTasksInput input)
         {
             var tasks = _taskRepository.GetAllWithPeople(input.AssignedPersonId, input.State);
@@ -53,6 +55,7 @@ namespace MyFirstABP
             //可以直接Logger,它在ApplicationService基类中定义的
             Logger.Info("Updating a task for input: " + input);
 
+            //找不到会抛出异常
             var task = _taskRepository.Get(input.TaskId);
 
             if (input.State.HasValue)

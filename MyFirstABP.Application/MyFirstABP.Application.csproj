@@ -181,6 +181,7 @@
     <Compile Include="DTO\TaskDto.cs" />
     <Compile Include="DTO\UpdateTaskInput.cs" />
     <Compile Include="ITaskAppService.cs" />
+    <Compile Include="MyAuthorizationProvider.cs" />
     <Compile Include="MyFirstABPApplicationModule.cs" />
     <Compile Include="MyFirstABPAppServiceBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
