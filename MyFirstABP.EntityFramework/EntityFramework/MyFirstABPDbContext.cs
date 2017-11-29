@@ -1,10 +1,12 @@
 ﻿using System.Data.Common;
 using Abp.EntityFramework;
 using System.Data.Entity;
+using Abp.Zero.EntityFramework;
+using MyFirstABP.Authorization;
 
 namespace MyFirstABP.EntityFramework
 {
-    public class MyFirstABPDbContext : AbpDbContext
+    public class MyFirstABPDbContext : AbpZeroDbContext<Tenant, Role, User>
     {
         public virtual DbSet<Task> Tasks { get; set; }
 

@@ -178,6 +178,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Authorization\PermissionChecker.cs" />
+    <Compile Include="Authorization\Role.cs" />
+    <Compile Include="Authorization\RoleManager.cs" />
+    <Compile Include="Authorization\RoleStore.cs" />
+    <Compile Include="Authorization\Tenant.cs" />
+    <Compile Include="Authorization\TenantManager.cs" />
+    <Compile Include="Authorization\User.cs" />
+    <Compile Include="Authorization\UserManager.cs" />
+    <Compile Include="Authorization\UserStore.cs" />
+    <Compile Include="Authorization\FeatureValueStore.cs" />
+    <Compile Include="EditionManager.cs" />
     <Compile Include="IRepositories\ITaskRepository.cs" />
     <Compile Include="MyFirstABPConsts.cs" />
     <Compile Include="MyFirstABPCoreModule.cs" />
