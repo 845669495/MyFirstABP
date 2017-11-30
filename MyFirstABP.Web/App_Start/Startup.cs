@@ -1,6 +1,8 @@
-﻿using Microsoft.AspNet.Identity;
+﻿using Abp.Owin;
+using Microsoft.AspNet.Identity;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
+using MyFirstABP.Api.Controllers;
 using MyFirstABP.Web.App_Start;
 using Owin;
 using System;
@@ -16,6 +18,9 @@ namespace MyFirstABP.Web.App_Start
     {
         public void Configuration(IAppBuilder app)
         {
+            app.UseAbp();
+            app.UseOAuthBearerAuthentication(AccountController.OAuthBearerOptions);
+
             // 使应用程序能够使用cookie存储登录用户的信息
             app.UseCookieAuthentication(new CookieAuthenticationOptions
             {

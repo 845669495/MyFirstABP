@@ -62,14 +62,17 @@
     <Reference Include="Abp.EntityFramework.Common, Version=3.2.5.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Abp.EntityFramework.Common.3.2.5\lib\netstandard2.0\Abp.EntityFramework.Common.dll</HintPath>
     </Reference>
+    <Reference Include="Abp.Owin, Version=3.2.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Abp.Owin.3.2.5\lib\net461\Abp.Owin.dll</HintPath>
+    </Reference>
     <Reference Include="Abp.Web, Version=3.2.4.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Abp.Web.3.2.4\lib\net461\Abp.Web.dll</HintPath>
     </Reference>
     <Reference Include="Abp.Web.Api, Version=3.2.4.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Abp.Web.Api.3.2.4\lib\net461\Abp.Web.Api.dll</HintPath>
     </Reference>
-    <Reference Include="Abp.Web.Common, Version=3.2.4.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Abp.Web.Common.3.2.4\lib\netstandard2.0\Abp.Web.Common.dll</HintPath>
+    <Reference Include="Abp.Web.Common, Version=3.2.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Abp.Web.Common.3.2.5\lib\netstandard2.0\Abp.Web.Common.dll</HintPath>
     </Reference>
     <Reference Include="Abp.Web.Mvc, Version=3.2.4.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Abp.Web.Mvc.3.2.4\lib\net461\Abp.Web.Mvc.dll</HintPath>
@@ -139,17 +142,23 @@
     <Reference Include="Microsoft.Owin, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Owin.3.1.0\lib\net45\Microsoft.Owin.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Owin.FileSystems, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.FileSystems.3.1.0\lib\net45\Microsoft.Owin.FileSystems.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.1.0\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Owin.Security, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Owin.Security.2.1.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    <Reference Include="Microsoft.Owin.Security, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.1.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Owin.Security.Cookies, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.2.1.0\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    <Reference Include="Microsoft.Owin.Security.Cookies, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.1.0\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.2.1.0\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    <Reference Include="Microsoft.Owin.Security.OAuth, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.1.0\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.StaticFiles, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.StaticFiles.3.1.0\lib\net45\Microsoft.Owin.StaticFiles.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Threading.Tasks, Version=1.0.12.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.dll</HintPath>

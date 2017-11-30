@@ -4,6 +4,7 @@ using Abp.Configuration.Startup;
 using Abp.Modules;
 using Abp.WebApi;
 using Abp.WebApi.Controllers.Dynamic.Builders;
+using System.Web.Http;
 
 namespace MyFirstABP
 {
@@ -20,6 +21,9 @@ namespace MyFirstABP
             Configuration.Modules.AbpWebApi().DynamicApiControllerBuilder
                 .ForAll<IApplicationService>(typeof(MyFirstABPApplicationModule).Assembly, "app")
                 .Build();
+
+            //检测到未授权的请求时返回json错误信息
+            Configuration.Modules.AbpWebApi().HttpConfiguration.Filters.Add(new HostAuthenticationFilter("Bearer"));
         }
     }
 }
