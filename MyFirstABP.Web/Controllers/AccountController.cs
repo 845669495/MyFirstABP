@@ -56,7 +56,8 @@ namespace MyFirstABP.Web.Controllers
 
             var loginResult = await _logInManager.LoginAsync(
                 loginModel.UsernameOrEmailAddress,
-                loginModel.Password
+                loginModel.Password,
+                loginModel.TenancyName
                 );
 
             switch (loginResult.Result)

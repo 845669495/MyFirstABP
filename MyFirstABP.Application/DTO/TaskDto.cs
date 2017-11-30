@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace MyFirstABP.DTO
 {
-    [AutoMapFrom(typeof(Task))]
+    //[AutoMapFrom(typeof(Task))]
     public class TaskDto : EntityDto
     {
         public int? AssignedPersonId { get; set; }

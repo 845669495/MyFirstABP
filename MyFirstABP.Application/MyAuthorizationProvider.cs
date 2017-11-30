@@ -11,12 +11,12 @@ namespace MyFirstABP
     {
         public override void SetPermissions(IPermissionDefinitionContext context)
         {
-            var administration = context.CreatePermission("Administration");
+            var administration = context.CreatePermission("AdminPermission");
 
-            var userManagement = administration.CreateChildPermission("Administration.UserManagement");
-            userManagement.CreateChildPermission("Administration.UserManagement.CreateUser");
+            //var userManagement = administration.CreateChildPermission("AdminPermission.UserManagement");
+            //var roleManagement = administration.CreateChildPermission("AdminPermission.RoleManagement");
+            //userManagement.CreateChildPermission("AdminPermission.UserManagement.CreateUser");
 
-            var roleManagement = administration.CreateChildPermission("Administration.RoleManagement");
         }
     }
 }

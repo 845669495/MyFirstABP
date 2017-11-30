@@ -38,7 +38,7 @@ namespace MyFirstABP
             _taskRepository.Insert(task);
         }
 
-        [AbpAuthorize("Administration.UserManagement.CreateUser")]
+        [AbpAuthorize("AdminPermission")]
         public GetTasksOutput GetTasks(GetTasksInput input)
         {
             var tasks = _taskRepository.GetAllWithPeople(input.AssignedPersonId, input.State);

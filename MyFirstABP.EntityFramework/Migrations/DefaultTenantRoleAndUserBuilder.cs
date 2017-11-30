@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MyFirstABP.EntityFramework;
 using MyFirstABP.Authorization;
+using Abp.Authorization.Roles;
 
 namespace MyFirstABP.Migrations
 {
@@ -25,39 +26,6 @@ namespace MyFirstABP.Migrations
 
         private void CreateUserAndRoles()
         {
-            //Admin role for tenancy owner
-
-            var adminRoleForTenancyOwner = _context.Roles.FirstOrDefault(r => r.TenantId == null && r.Name == "Admin");
-            if (adminRoleForTenancyOwner == null)
-            {
-                adminRoleForTenancyOwner = _context.Roles.Add(new Role { Name = "Admin", DisplayName = "Admin" });
-                _context.SaveChanges();
-            }
-
-            //Admin user for tenancy owner
-
-            var adminUserForTenancyOwner = _context.Users.FirstOrDefault(u => u.TenantId == null && u.UserName == "admin");
-            if (adminUserForTenancyOwner == null)
-            {
-                adminUserForTenancyOwner = _context.Users.Add(
-                    new User
-                    {
-                        TenantId = null,
-                        UserName = "admin",
-                        Name = "System",
-                        Surname = "Administrator",
-                        EmailAddress = "admin@aspnetboilerplate.com",
-                        IsEmailConfirmed = true,
-                        Password = "AM4OLBpptxBYmM79lGOX9egzZk3vIQU3d/gFCJzaBjAPXzYIK3tQ2N7X4fcrHtElTw==" //123qwe
-                });
-
-                _context.SaveChanges();
-
-                _context.UserRoles.Add(new UserRole(null, adminUserForTenancyOwner.Id, adminRoleForTenancyOwner.Id));
-
-                _context.SaveChanges();
-            }
-
             //Default tenant
 
             var defaultTenant = _context.Tenants.FirstOrDefault(t => t.TenancyName == "Default");
@@ -69,19 +37,26 @@ namespace MyFirstABP.Migrations
 
             //Admin role for 'Default' tenant
 
-            var adminRoleForDefaultTenant = _context.Roles.FirstOrDefault(r => r.TenantId == defaultTenant.Id && r.Name == "Admin");
-            if (adminRoleForDefaultTenant == null)
+            var adminRole = _context.Roles.FirstOrDefault(r => r.TenantId == defaultTenant.Id && r.Name == "Admin");
+            if (adminRole == null)
             {
-                adminRoleForDefaultTenant = _context.Roles.Add(new Role { TenantId = defaultTenant.Id, Name = "Admin", DisplayName = "Admin" });
+                Role role = new Role()
+                {
+                    TenantId = defaultTenant.Id,
+                    Name = "Admin",
+                    DisplayName = "Admin",
+                    Permissions = new List<RolePermissionSetting>() { new RolePermissionSetting { Name = "AdminPermission", TenantId = defaultTenant.Id } }
+                };
+                adminRole = _context.Roles.Add(role);
                 _context.SaveChanges();
             }
 
             //Admin for 'Default' tenant
 
-            var adminUserForDefaultTenant = _context.Users.FirstOrDefault(u => u.TenantId == defaultTenant.Id && u.UserName == "admin");
-            if (adminUserForDefaultTenant == null)
+            var adminUser = _context.Users.FirstOrDefault(u => u.TenantId == defaultTenant.Id && u.UserName == "admin");
+            if (adminUser == null)
             {
-                adminUserForDefaultTenant = _context.Users.Add(
+                adminUser = _context.Users.Add(
                     new User
                     {
                         TenantId = defaultTenant.Id,
@@ -91,10 +66,10 @@ namespace MyFirstABP.Migrations
                         EmailAddress = "admin@aspnetboilerplate.com",
                         IsEmailConfirmed = true,
                         Password = "AM4OLBpptxBYmM79lGOX9egzZk3vIQU3d/gFCJzaBjAPXzYIK3tQ2N7X4fcrHtElTw==" //123qwe
-                });
+                    });
                 _context.SaveChanges();
 
-                _context.UserRoles.Add(new UserRole(defaultTenant.Id, adminUserForDefaultTenant.Id, adminRoleForDefaultTenant.Id));
+                _context.UserRoles.Add(new UserRole(defaultTenant.Id, adminUser.Id, adminRole.Id));
                 _context.SaveChanges();
             }
         }

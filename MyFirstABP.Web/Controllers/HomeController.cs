@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace MyFirstABP.Web.Controllers
 {
-    [AbpMvcAuthorize]
+    [AbpMvcAuthorize(Roles = "Admin")]
     public class HomeController : MyFirstABPControllerBase
     {
         public ActionResult Index()
