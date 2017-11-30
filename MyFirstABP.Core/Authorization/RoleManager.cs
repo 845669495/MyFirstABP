@@ -13,7 +13,7 @@ namespace MyFirstABP.Authorization
 {
     public class RoleManager : AbpRoleManager<Role, User>
     {
-        public RoleManager(AbpRoleStore<Role, User> store, IPermissionManager permissionManager, IRoleManagementConfig roleManagementConfig, ICacheManager cacheManager, IUnitOfWorkManager unitOfWorkManager) 
+        public RoleManager(RoleStore store, IPermissionManager permissionManager, IRoleManagementConfig roleManagementConfig, ICacheManager cacheManager, IUnitOfWorkManager unitOfWorkManager) 
             : base(store, permissionManager, roleManagementConfig, cacheManager, unitOfWorkManager)
         {
         }

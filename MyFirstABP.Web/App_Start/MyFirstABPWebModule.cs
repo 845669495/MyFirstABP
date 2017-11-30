@@ -8,6 +8,7 @@ using Abp.Localization.Dictionaries;
 using Abp.Localization.Dictionaries.Xml;
 using Abp.Modules;
 using Abp.Web.Mvc;
+using Abp.Configuration.Startup;
 
 namespace MyFirstABP.Web
 {
@@ -38,6 +39,8 @@ namespace MyFirstABP.Web
 
             //Configure navigation/menu
             Configuration.Navigation.Providers.Add<MyFirstABPNavigationProvider>();
+
+            Configuration.Modules.AbpWeb().AntiForgery.IsEnabled = false;
         }
 
         public override void Initialize()

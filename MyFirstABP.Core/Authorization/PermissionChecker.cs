@@ -10,7 +10,7 @@ namespace MyFirstABP.Authorization
 {
     public class PermissionChecker : PermissionChecker<Role, User>
     {
-        protected PermissionChecker(AbpUserManager<Role, User> userManager) : base(userManager)
+        public PermissionChecker(UserManager userManager) : base(userManager)
         {
         }
     }

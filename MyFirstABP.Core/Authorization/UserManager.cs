@@ -18,7 +18,7 @@ namespace MyFirstABP.Authorization
 {
     public class UserManager : AbpUserManager<Role, User>
     {
-        public UserManager(AbpUserStore<Role, User> userStore, AbpRoleManager<Role, User> roleManager, IPermissionManager permissionManager, IUnitOfWorkManager unitOfWorkManager, ICacheManager cacheManager, IRepository<OrganizationUnit, long> organizationUnitRepository, IRepository<UserOrganizationUnit, long> userOrganizationUnitRepository, IOrganizationUnitSettings organizationUnitSettings, ILocalizationManager localizationManager, IdentityEmailMessageService emailService, ISettingManager settingManager, IUserTokenProviderAccessor userTokenProviderAccessor)
+        public UserManager(UserStore userStore, RoleManager roleManager, IPermissionManager permissionManager, IUnitOfWorkManager unitOfWorkManager, ICacheManager cacheManager, IRepository<OrganizationUnit, long> organizationUnitRepository, IRepository<UserOrganizationUnit, long> userOrganizationUnitRepository, IOrganizationUnitSettings organizationUnitSettings, ILocalizationManager localizationManager, IdentityEmailMessageService emailService, ISettingManager settingManager, IUserTokenProviderAccessor userTokenProviderAccessor)
             : base(userStore, roleManager, permissionManager, unitOfWorkManager, cacheManager, organizationUnitRepository, userOrganizationUnitRepository, organizationUnitSettings, localizationManager, emailService, settingManager, userTokenProviderAccessor)
         {
         }
