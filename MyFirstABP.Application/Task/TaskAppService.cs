@@ -47,14 +47,6 @@ namespace MyFirstABP
         {
             var tasks = _taskRepository.GetAllWithPeople(input.AssignedPersonId, input.State);
 
-            var task = tasks.First();
-
-            var user = GetCurrentUser();
-
-            var entity = _cacheService.GetCachedEntity<long,Task>(task.Id);
-            entity.Description = "aaafdsfgdg";
-            _cacheService.Set(task.Id, entity);
-
             //用AutoMapper自动将List<Task>转换成List<TaskDto>
             return new GetTasksOutput()
             {
