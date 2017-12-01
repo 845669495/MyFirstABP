@@ -189,7 +189,6 @@
     <Compile Include="Authorization\UserManager.cs" />
     <Compile Include="Authorization\UserStore.cs" />
     <Compile Include="Authorization\FeatureValueStore.cs" />
-    <Compile Include="EditionManager.cs" />
     <Compile Include="IRepositories\ITaskRepository.cs" />
     <Compile Include="MyFirstABPConsts.cs" />
     <Compile Include="MyFirstABPCoreModule.cs" />

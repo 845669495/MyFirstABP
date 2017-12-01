@@ -9,13 +9,15 @@ using Abp.Localization.Dictionaries.Xml;
 using Abp.Modules;
 using Abp.Web.Mvc;
 using Abp.Configuration.Startup;
+using Abp.Runtime.Caching.Redis;
 
 namespace MyFirstABP.Web
 {
     [DependsOn(
         typeof(AbpWebMvcModule),
         typeof(MyFirstABPDataModule), 
-        typeof(MyFirstABPApplicationModule), 
+        typeof(MyFirstABPApplicationModule),
+        typeof(AbpRedisCacheModule),
         typeof(MyFirstABPWebApiModule))]
     public class MyFirstABPWebModule : AbpModule
     {

@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace MyFirstABP
 {
-    public class TaskAppService : ApplicationService, ITaskAppService
+    public class TaskAppService : MyFirstABPAppServiceBase, ITaskAppService
     {
         private readonly ITaskRepository _taskRepository;
         //可以注入泛型
@@ -43,6 +43,7 @@ namespace MyFirstABP
         {
             var tasks = _taskRepository.GetAllWithPeople(input.AssignedPersonId, input.State);
 
+            var user = GetCurrentUser();
             //用AutoMapper自动将List<Task>转换成List<TaskDto>
             return new GetTasksOutput()
             {
