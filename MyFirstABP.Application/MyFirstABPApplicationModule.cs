@@ -3,6 +3,7 @@ using Abp.Modules;
 using AutoMapper;
 using System;
 using Abp.AutoMapper;
+using Abp.Runtime.Caching;
 
 namespace MyFirstABP
 {
@@ -18,23 +19,6 @@ namespace MyFirstABP
         public override void Initialize()
         {
             IocManager.RegisterAssemblyByConvention(Assembly.GetExecutingAssembly());
-
-            //初始化AutoMapper
-            //Mapper.Initialize(configuration =>
-            //{
-            //    configuration.CreateAutoAttributeMaps(typeof(TaskDto));
-            //});
         }
     }
-
-    //internal static class AutoMapperConfigurationExtensions
-    //{
-    //    public static void CreateAutoAttributeMaps(this IMapperConfigurationExpression configuration, Type type)
-    //    {
-    //        foreach (var autoMapAttribute in type.GetTypeInfo().GetCustomAttributes<AutoMapAttributeBase>())
-    //        {
-    //            autoMapAttribute.CreateMap(configuration, type);
-    //        }
-    //    }
-    //}
 }

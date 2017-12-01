@@ -10,6 +10,7 @@ using Abp.Modules;
 using Abp.Web.Mvc;
 using Abp.Configuration.Startup;
 using Abp.Runtime.Caching.Redis;
+using Abp.Runtime.Caching;
 
 namespace MyFirstABP.Web
 {
@@ -23,6 +24,13 @@ namespace MyFirstABP.Web
     {
         public override void PreInitialize()
         {
+            //配置使用Redis缓存
+            Configuration.Caching.UseRedis();
+            //IocManager.Register<ICacheManager, AbpRedisCacheManager>();
+            //如果Redis在本机,并且使用的默认端口,下面的代码可以不要
+            //Configuration.Modules.AbpRedisCacheModule().ConnectionStringKey = "KeyName";
+
+
             //Add/remove languages for your application
             Configuration.Localization.Languages.Add(new LanguageInfo("en", "English", "famfamfam-flag-england", true));
             Configuration.Localization.Languages.Add(new LanguageInfo("tr", "Türkçe", "famfamfam-flag-tr"));

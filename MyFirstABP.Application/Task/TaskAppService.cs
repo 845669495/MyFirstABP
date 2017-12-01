@@ -2,6 +2,7 @@
 using Abp.Authorization;
 using Abp.Domain.Repositories;
 using AutoMapper;
+using MyFirstABP.Caching;
 using MyFirstABP.DTO;
 using MyFirstABP.IRepositories;
 using System;
@@ -18,13 +19,16 @@ namespace MyFirstABP
         //可以注入泛型
         private readonly IRepository<Person> _personRepository;
 
+        private readonly ICacheService _cacheService;
+
         /// <summary>
         /// 构造函数自动注入我们所需要的类或接口
         /// </summary>
-        public TaskAppService(ITaskRepository taskRepository, IRepository<Person> personRepository)
+        public TaskAppService(ITaskRepository taskRepository, IRepository<Person> personRepository, ICacheService cacheService)
         {
             _taskRepository = taskRepository;
             _personRepository = personRepository;
+            _cacheService = cacheService;
         }
 
 
@@ -43,7 +47,14 @@ namespace MyFirstABP
         {
             var tasks = _taskRepository.GetAllWithPeople(input.AssignedPersonId, input.State);
 
+            var task = tasks.First();
+
             var user = GetCurrentUser();
+
+            var entity = _cacheService.GetCachedEntity<long,Task>(task.Id);
+            entity.Description = "aaafdsfgdg";
+            _cacheService.Set(task.Id, entity);
+
             //用AutoMapper自动将List<Task>转换成List<TaskDto>
             return new GetTasksOutput()
             {
