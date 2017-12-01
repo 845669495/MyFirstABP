@@ -5,6 +5,8 @@ using Abp.Modules;
 using Abp.WebApi;
 using Abp.WebApi.Controllers.Dynamic.Builders;
 using System.Web.Http;
+using Swashbuckle.Application;
+using System.Linq;
 
 namespace MyFirstABP
 {
@@ -24,6 +26,22 @@ namespace MyFirstABP
 
             //检测到未授权的请求时返回json错误信息
             Configuration.Modules.AbpWebApi().HttpConfiguration.Filters.Add(new HostAuthenticationFilter("Bearer"));
+
+            ConfigureSwaggerUi();
+        }
+
+        /// <summary>
+        /// 配置SwaggerUi  地址 http://localhost:6234/swagger/ui/index
+        /// </summary>
+        private void ConfigureSwaggerUi()
+        {
+            Configuration.Modules.AbpWebApi().HttpConfiguration
+                .EnableSwagger(c =>
+                {
+                    c.SingleApiVersion("v1", "MyFirstABP.WebApi");
+                    c.ResolveConflictingActions(apiDescriptions => apiDescriptions.First());
+                })
+                .EnableSwaggerUi();
         }
     }
 }
