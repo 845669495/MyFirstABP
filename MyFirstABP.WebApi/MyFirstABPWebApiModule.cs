@@ -41,12 +41,13 @@ namespace MyFirstABP
                 {
                     c.SingleApiVersion("v1", "MyFirstABP.WebApi");
                     c.ResolveConflictingActions(apiDescriptions => apiDescriptions.First());
-
+                    
                     string[] ss = Directory.GetFiles(string.Format("{0}/bin", System.AppDomain.CurrentDomain.BaseDirectory), "MyFirstABP.*.xml");
                     foreach (var item in ss)
                         c.IncludeXmlComments(item);
 
                     c.CustomProvider((defaultProvider) => new CachingSwaggerProvider(defaultProvider));
+                    c.DocumentFilter<HiddenApiFilter>();
                 })
                 .EnableSwaggerUi(c =>
                 {

@@ -228,6 +228,7 @@
     <Compile Include="Api\Controllers\AccountController.cs" />
     <Compile Include="Api\Models\LoginModel.cs" />
     <Compile Include="CachingSwaggerProvider.cs" />
+    <Compile Include="HiddenApiFilter.cs" />
     <Compile Include="MyFirstABPWebApiModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
