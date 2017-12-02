@@ -207,6 +207,10 @@
     <Compile Include="Migrations\201711291353512_AbpZero_Installed.Designer.cs">
       <DependentUpon>201711291353512_AbpZero_Installed.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201712020807133_2.cs" />
+    <Compile Include="Migrations\201712020807133_2.Designer.cs">
+      <DependentUpon>201712020807133_2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\DefaultTenantRoleAndUserBuilder.cs" />
     <Compile Include="MyFirstABPDataModule.cs" />
@@ -228,6 +232,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711291353512_AbpZero_Installed.resx">
       <DependentUpon>201711291353512_AbpZero_Installed.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712020807133_2.resx">
+      <DependentUpon>201712020807133_2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -188,7 +188,6 @@
     <Compile Include="Authorization\User.cs" />
     <Compile Include="Authorization\UserManager.cs" />
     <Compile Include="Authorization\UserStore.cs" />
-    <Compile Include="Authorization\FeatureValueStore.cs" />
     <Compile Include="Caching\CacheService.cs" />
     <Compile Include="Caching\CacheSyncService.cs" />
     <Compile Include="Caching\ICacheService.cs" />
