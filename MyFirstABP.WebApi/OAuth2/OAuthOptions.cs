@@ -22,6 +22,7 @@ namespace MyFirstABP.OAuth2
 
         /// <summary>
         /// Creates the server options.
+        /// http://localhost:6234/api/oauth/token
         /// </summary>
         /// <returns>OAuthAuthorizationServerOptions.</returns>
         public static OAuthAuthorizationServerOptions CreateServerOptions()
@@ -32,7 +33,7 @@ namespace MyFirstABP.OAuth2
                 var refreshTokenProvider = IocManager.Instance.Resolve<SimpleRefreshTokenProvider>();
                 _serverOptions = new OAuthAuthorizationServerOptions
                 {
-                    TokenEndpointPath = new PathString("/oauth/token"),
+                    TokenEndpointPath = new PathString("/api/oauth/token"),
                     Provider = provider,
                     RefreshTokenProvider = refreshTokenProvider,
                     AccessTokenExpireTimeSpan = TimeSpan.FromDays(3),
