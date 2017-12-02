@@ -14,6 +14,9 @@ using System.Web.Mvc;
 
 namespace MyFirstABP.Web.Controllers
 {
+    /// <summary>
+    /// Web会员操作
+    /// </summary>
     public class AccountController : MyFirstABPControllerBase
     {
         private readonly UserManager _userManager;

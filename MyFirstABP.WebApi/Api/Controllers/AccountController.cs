@@ -16,6 +16,9 @@ using System.Web.Http;
 
 namespace MyFirstABP.Api.Controllers
 {
+    /// <summary>
+    /// Api会员操作
+    /// </summary>
     public class AccountController : AbpApiController
     {
         public static OAuthBearerAuthenticationOptions OAuthBearerOptions { get; private set; }

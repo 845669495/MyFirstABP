@@ -45,6 +45,8 @@ namespace MyFirstABP
                     string[] ss = Directory.GetFiles(string.Format("{0}/bin", System.AppDomain.CurrentDomain.BaseDirectory), "MyFirstABP.*.xml");
                     foreach (var item in ss)
                         c.IncludeXmlComments(item);
+
+                    c.CustomProvider((defaultProvider) => new CachingSwaggerProvider(defaultProvider));
                 })
                 .EnableSwaggerUi(c =>
                 {

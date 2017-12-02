@@ -13,6 +13,9 @@ using System.Threading.Tasks;
 
 namespace MyFirstABP
 {
+    /// <summary>
+    /// 任务服务实现
+    /// </summary>
     public class TaskAppService : MyFirstABPAppServiceBase, ITaskAppService
     {
         private readonly ITaskRepository _taskRepository;
