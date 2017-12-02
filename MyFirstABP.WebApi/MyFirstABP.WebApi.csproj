@@ -230,6 +230,9 @@
     <Compile Include="CachingSwaggerProvider.cs" />
     <Compile Include="HiddenApiFilter.cs" />
     <Compile Include="MyFirstABPWebApiModule.cs" />
+    <Compile Include="OAuth2\OAuthOptions.cs" />
+    <Compile Include="OAuth2\SimpleAuthorizationServerProvider.cs" />
+    <Compile Include="OAuth2\SimpleRefreshTokenProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

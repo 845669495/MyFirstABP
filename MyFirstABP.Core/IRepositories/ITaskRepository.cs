@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace MyFirstABP.IRepositories
 {
-    public interface ITaskRepository : IRepository<Task, long>
+    public interface ITaskRepository : IRepository<TaskEntity, long>
     {
-        List<Task> GetAllWithPeople(int? assignedPersonId, TaskState? state);
+        List<TaskEntity> GetAllWithPeople(int? assignedPersonId, TaskState? state);
     }
 }

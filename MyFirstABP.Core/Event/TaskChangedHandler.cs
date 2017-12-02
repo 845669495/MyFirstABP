@@ -7,7 +7,7 @@ using MyFirstABP.Caching;
 
 namespace MyFirstABP.Event
 {
-    public class TaskChangedHandler : EntityChangedHandlerBase<Task, long>
+    public class TaskChangedHandler : EntityChangedHandlerBase<TaskEntity, long>
     {
         public TaskChangedHandler(ICacheSyncService<long> cacheSyncService) : base(cacheSyncService)
         {

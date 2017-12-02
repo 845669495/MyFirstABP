@@ -8,7 +8,8 @@ using System.Threading.Tasks;
 
 namespace MyFirstABP
 {
-    public class Task : Entity<long>
+    [Table("Tasks")]
+    public class TaskEntity : Entity<long>
     {
         public virtual Person AssignedPerson { get; set; }
 
@@ -20,7 +21,7 @@ namespace MyFirstABP
 
         public TaskState State { get; set; }
 
-        public Task()
+        public TaskEntity()
         {
             CreationTime = DateTime.Now;
             State = TaskState.Active;

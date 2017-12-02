@@ -10,13 +10,13 @@ using MyFirstABP.IRepositories;
 
 namespace MyFirstABP.EntityFramework.Repositories
 {
-    public class TaskRepository : MyFirstABPRepositoryBase<Task, long>, ITaskRepository
+    public class TaskRepository : MyFirstABPRepositoryBase<TaskEntity, long>, ITaskRepository
     {
         public TaskRepository(IDbContextProvider<MyFirstABPDbContext> dbContextProvider) : base(dbContextProvider)
         {
         }
 
-        public List<Task> GetAllWithPeople(int? assignedPersonId, TaskState? state)
+        public List<TaskEntity> GetAllWithPeople(int? assignedPersonId, TaskState? state)
         {
             //在仓储方法中，不用处理数据库连接、DbContext和数据事务，ABP框架会自动处理。
             var query = GetAll();

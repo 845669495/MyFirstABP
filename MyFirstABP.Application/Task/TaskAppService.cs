@@ -39,7 +39,7 @@ namespace MyFirstABP
         {
             Logger.Info("Creating a task for input: " + input);
 
-            var task = new Task() { Description = input.Description, AssignedPersonId = input.AssignedPersonId };
+            var task = new TaskEntity() { Description = input.Description, AssignedPersonId = input.AssignedPersonId };
 
             //调用仓储基类的Insert方法把实体保存到数据库中
             _taskRepository.Insert(task);

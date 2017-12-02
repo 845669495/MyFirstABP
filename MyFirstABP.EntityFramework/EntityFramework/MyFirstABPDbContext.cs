@@ -8,7 +8,7 @@ namespace MyFirstABP.EntityFramework
 {
     public class MyFirstABPDbContext : AbpZeroDbContext<Tenant, Role, User>
     {
-        public virtual DbSet<Task> Tasks { get; set; }
+        public virtual DbSet<TaskEntity> Tasks { get; set; }
 
         public virtual DbSet<Person> People { get; set; }
 
