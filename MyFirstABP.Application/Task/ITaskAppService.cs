@@ -20,6 +20,7 @@ namespace MyFirstABP
         /// <param name="input"></param>
         /// <returns></returns>
         [HttpGet]
+        [Authorize]
         GetTasksOutput GetTasks(GetTasksInput input);
         /// <summary>
         /// 更新Task

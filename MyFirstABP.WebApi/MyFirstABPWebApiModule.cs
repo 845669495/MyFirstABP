@@ -48,6 +48,7 @@ namespace MyFirstABP
 
                     c.CustomProvider((defaultProvider) => new CachingSwaggerProvider(defaultProvider));
                     c.DocumentFilter<HiddenApiFilter>();
+                    c.OperationFilter<HttpHeaderFilter>();
                 })
                 .EnableSwaggerUi(c =>
                 {

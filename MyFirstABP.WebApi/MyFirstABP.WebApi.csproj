@@ -229,6 +229,7 @@
     <Compile Include="Api\Models\LoginModel.cs" />
     <Compile Include="CachingSwaggerProvider.cs" />
     <Compile Include="HiddenApiFilter.cs" />
+    <Compile Include="HttpHeaderFilter.cs" />
     <Compile Include="MyFirstABPWebApiModule.cs" />
     <Compile Include="OAuth2\OAuthOptions.cs" />
     <Compile Include="OAuth2\SimpleAuthorizationServerProvider.cs" />

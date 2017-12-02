@@ -29,24 +29,5 @@ namespace MyFirstABP.DTO
         /// 状态
         /// </summary>
         public TaskState State { get; set; }
-        /// <summary>
-        /// 人类
-        /// </summary>
-        public MyClass MyProperty { get; set; }
-    }
-
-    /// <summary>
-    ///我的泪
-    /// </summary>
-    public class MyClass
-    {
-        /// <summary>
-        /// 整数
-        /// </summary>
-        public int MyProperty { get; set; }
-        /// <summary>
-        /// 字符
-        /// </summary>
-        public string MyProperty2 { get; set; }
     }
 }
