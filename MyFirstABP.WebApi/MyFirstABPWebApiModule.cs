@@ -7,6 +7,7 @@ using Abp.WebApi.Controllers.Dynamic.Builders;
 using System.Web.Http;
 using Swashbuckle.Application;
 using System.Linq;
+using System.IO;
 
 namespace MyFirstABP
 {
@@ -40,8 +41,15 @@ namespace MyFirstABP
                 {
                     c.SingleApiVersion("v1", "MyFirstABP.WebApi");
                     c.ResolveConflictingActions(apiDescriptions => apiDescriptions.First());
+
+                    string[] ss = Directory.GetFiles(string.Format("{0}/bin", System.AppDomain.CurrentDomain.BaseDirectory), "MyFirstABP.*.xml");
+                    foreach (var item in ss)
+                        c.IncludeXmlComments(item);
                 })
-                .EnableSwaggerUi();
+                .EnableSwaggerUi(c =>
+                {
+                    c.InjectJavaScript(Assembly.GetAssembly(typeof(MyFirstABPWebApiModule)), "MyFirstABP.Scripts.Swagger-Custom.js");
+                });
         }
     }
 }
