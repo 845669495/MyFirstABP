@@ -2,3 +2,4 @@ https://github.com/aspnetboilerplate/aspnetboilerplate
 http://www.cnblogs.com/mienreal/p/4528470.html
 http://www.cnblogs.com/kebinet/p/5341663.html
 http://www.cnblogs.com/farb/p/ABPTheory.html
+http://www.cnblogs.com/loyldg/p/using-oauth2-in-abp.html
