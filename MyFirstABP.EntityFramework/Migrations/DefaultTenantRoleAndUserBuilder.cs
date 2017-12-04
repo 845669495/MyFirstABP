@@ -51,6 +51,23 @@ namespace MyFirstABP.Migrations
                 _context.SaveChanges();
             }
 
+            //customer role for 'Default' tenant
+
+            var customerRole = _context.Roles.FirstOrDefault(r => r.TenantId == defaultTenant.Id && r.Name == "Customer");
+            if (customerRole == null)
+            {
+                Role role = new Role()
+                {
+                    TenantId = defaultTenant.Id,
+                    Name = "Customer",
+                    DisplayName = "Customer",
+                    IsDefault = true,
+                    Permissions = new List<RolePermissionSetting>() { new RolePermissionSetting { Name = "CustomerPermission", TenantId = defaultTenant.Id } }
+                };
+                customerRole = _context.Roles.Add(role);
+                _context.SaveChanges();
+            }
+
             //Admin for 'Default' tenant
 
             var adminUser = _context.Users.FirstOrDefault(u => u.TenantId == defaultTenant.Id && u.UserName == "admin");

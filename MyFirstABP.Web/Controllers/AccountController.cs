@@ -1,4 +1,5 @@
 ﻿using Abp.Authorization;
+using Abp.Domain.Uow;
 using Abp.UI;
 using Abp.Web.Models;
 using Microsoft.AspNet.Identity;
@@ -20,8 +21,9 @@ namespace MyFirstABP.Web.Controllers
     public class AccountController : MyFirstABPControllerBase
     {
         private readonly UserManager _userManager;
-
         private readonly LogInManager _logInManager;
+        private readonly RoleManager _roleManager;
+        private readonly IUnitOfWorkManager _unitOfWorkManager;
 
         private IAuthenticationManager AuthenticationManager
         {
@@ -31,10 +33,12 @@ namespace MyFirstABP.Web.Controllers
             }
         }
 
-        public AccountController(UserManager userManager,LogInManager logInManager)
+        public AccountController(UserManager userManager,LogInManager logInManager, RoleManager roleManager, IUnitOfWorkManager unitOfWorkManager)
         {
             _userManager = userManager;
             _logInManager = logInManager;
+            _roleManager = roleManager;
+            _unitOfWorkManager = unitOfWorkManager;
         }
 
         public ActionResult Login(string returnUrl = "")
@@ -52,16 +56,9 @@ namespace MyFirstABP.Web.Controllers
         [HttpPost]
         public async Task<JsonResult> Login(LoginViewModel loginModel, string returnUrl = "")
         {
-            if (!ModelState.IsValid)
-            {
-                throw new UserFriendlyException("Your form is invalid!");
-            }
+            CheckModelState();
 
-            var loginResult = await _logInManager.LoginAsync(
-                loginModel.UsernameOrEmailAddress,
-                loginModel.Password,
-                loginModel.TenancyName
-                );
+            var loginResult = await _logInManager.LoginAsync(loginModel.UsernameOrEmailAddress, loginModel.Password);
 
             switch (loginResult.Result)
             {
@@ -70,10 +67,6 @@ namespace MyFirstABP.Web.Controllers
                 case AbpLoginResultType.InvalidUserNameOrEmailAddress:
                 case AbpLoginResultType.InvalidPassword:
                     throw new UserFriendlyException("Invalid user name or password!");
-                case AbpLoginResultType.InvalidTenancyName:
-                    throw new UserFriendlyException("No tenant with name: " + loginModel.TenancyName);
-                case AbpLoginResultType.TenantIsNotActive:
-                    throw new UserFriendlyException("Tenant is not active: " + loginModel.TenancyName);
                 case AbpLoginResultType.UserIsNotActive:
                     throw new UserFriendlyException("User is not active: " + loginModel.UsernameOrEmailAddress);
                 case AbpLoginResultType.UserEmailIsNotConfirmed:
@@ -97,6 +90,22 @@ namespace MyFirstABP.Web.Controllers
         {
             AuthenticationManager.SignOut();
             return RedirectToAction("Login");
+        }
+
+        [HttpPost]
+        public virtual async Task<JsonResult> Register(RegisterViewModel model)
+        {
+            CheckModelState();
+
+            var loginResult = await _logInManager.Register(model.UserName, model.Password);
+
+            if (loginResult.Result == AbpLoginResultType.Success)
+            {
+                AuthenticationManager.SignIn(new AuthenticationProperties(), loginResult.Identity);
+                return Json(new AjaxResponse { Success = true });
+            }
+
+            throw new UserFriendlyException("注册失败: " + loginResult.Result);
         }
     }
 }

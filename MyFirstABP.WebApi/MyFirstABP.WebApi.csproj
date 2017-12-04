@@ -226,7 +226,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Api\Controllers\AccountController.cs" />
+    <Compile Include="Api\Models\ExternalRegisterModel.cs" />
     <Compile Include="Api\Models\LoginModel.cs" />
+    <Compile Include="Api\Models\ExternalLoginModel.cs" />
+    <Compile Include="Api\Models\RegisterModel.cs" />
     <Compile Include="CachingSwaggerProvider.cs" />
     <Compile Include="HiddenApiFilter.cs" />
     <Compile Include="HttpHeaderFilter.cs" />

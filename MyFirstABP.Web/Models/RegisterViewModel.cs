@@ -1,24 +1,23 @@
-ï»¿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Text.RegularExpressions;
+using Abp.Auditing;
+using Abp.Extensions;
 
-namespace MyFirstABP.Api.Models
+namespace MyFirstABP.Web.Models
 {
     /// <summary>
-    /// ç™»å½•æ¨¡å‹
+    /// ×¢²áÄ£ĞÍ
     /// </summary>
-    public class LoginModel
+    public class RegisterViewModel
     {
         /// <summary>
-        /// ç”¨æˆ·å
+        /// ÓÃ»§Ãû
         /// </summary>
         [Required]
         public string UserName { get; set; }
         /// <summary>
-        /// å¯†ç 
+        /// ÃÜÂë
         /// </summary>
         [Required]
         public string Password { get; set; }

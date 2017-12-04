@@ -8,9 +8,6 @@ namespace MyFirstABP.Web.Models
 {
     public class LoginViewModel
     {
-
-        public string TenancyName { get; set; }
-
         [Required]
         public string UsernameOrEmailAddress { get; set; }
 

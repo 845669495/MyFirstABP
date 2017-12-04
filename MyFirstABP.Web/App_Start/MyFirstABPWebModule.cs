@@ -24,6 +24,9 @@ namespace MyFirstABP.Web
     {
         public override void PreInitialize()
         {
+
+            Configuration.Modules.AbpWebCommon().SendAllExceptionsToClients = true;
+
             //配置使用Redis缓存
             //Configuration.Caching.UseRedis();
             //如果Redis在本机,并且使用的默认端口,下面的代码可以不要

@@ -50,7 +50,7 @@ namespace MyFirstABP.OAuth2
                     Provider = provider,
                     RefreshTokenProvider = refreshTokenProvider,
                     AccessTokenExpireTimeSpan = TimeSpan.FromDays(3),
-                    AllowInsecureHttp = true
+                    AllowInsecureHttp = true           
                 };
             }
             return _serverOptions;

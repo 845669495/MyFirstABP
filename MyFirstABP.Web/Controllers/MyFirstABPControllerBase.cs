@@ -1,4 +1,7 @@
-﻿using Abp.Web.Mvc.Controllers;
+﻿using Abp.IdentityFramework;
+using Abp.UI;
+using Abp.Web.Mvc.Controllers;
+using Microsoft.AspNet.Identity;
 
 namespace MyFirstABP.Web.Controllers
 {
@@ -10,6 +13,19 @@ namespace MyFirstABP.Web.Controllers
         protected MyFirstABPControllerBase()
         {
             LocalizationSourceName = MyFirstABPConsts.LocalizationSourceName;
+        }
+
+        protected void CheckErrors(IdentityResult identityResult)
+        {
+            identityResult.CheckErrors();
+        }
+
+        protected void CheckModelState()
+        {
+            if (!ModelState.IsValid)
+            {
+                throw new UserFriendlyException("Your form is invalid!");
+            }
         }
     }
 }
