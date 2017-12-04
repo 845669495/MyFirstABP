@@ -55,6 +55,7 @@ namespace MyFirstABP.Authorization
             return await LoginAsync(userName, password);
         }
 
+        [UnitOfWork]
         public virtual async Task<AbpLoginResult<Tenant, User>> ExternalRegisterOrBind(string userName, string loginProvider, string providerKey)
         {
             if (UserLoginRepository.Count(p => p.LoginProvider == loginProvider && p.ProviderKey == providerKey) > 0)
