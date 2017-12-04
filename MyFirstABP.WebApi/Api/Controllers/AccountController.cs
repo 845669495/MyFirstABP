@@ -1,6 +1,5 @@
 ﻿using Abp.Authorization;
 using Abp.Authorization.Users;
-using Abp.Domain.Uow;
 using Abp.UI;
 using Abp.Web.Models;
 using Abp.WebApi.Controllers;
@@ -59,7 +58,7 @@ namespace MyFirstABP.Api.Controllers
         }
 
         /// <summary>
-        /// 第三方登录授权
+        /// 第三方登录授权获取token
         /// </summary>
         /// <param name="loginModel"></param>
         /// <returns></returns>
@@ -70,13 +69,15 @@ namespace MyFirstABP.Api.Controllers
                 throw new UserFriendlyException("Invalid request!");
             }
 
+            //后续需要校验第三方服务
+
             var loginResult = await _logInManager.LoginAsync(new UserLoginInfo(loginModel.LoginProvider, loginModel.ProviderKey));
             string token = GetToken(loginResult);
             return new AjaxResponse(token);
         }
 
         /// <summary>
-        /// 账号密码注册
+        /// 普通注册
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
@@ -94,7 +95,7 @@ namespace MyFirstABP.Api.Controllers
         }
 
         /// <summary>
-        /// 第三方注册
+        /// 第三方账号注册或绑定
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
@@ -104,6 +105,8 @@ namespace MyFirstABP.Api.Controllers
             {
                 throw new UserFriendlyException("Invalid request!");
             }
+
+            //后续需要校验第三方服务
 
             var loginResult = await _logInManager.ExternalRegisterOrBind(model.UserName, model.LoginProvider, model.ProviderKey);
             string token = GetToken(loginResult);

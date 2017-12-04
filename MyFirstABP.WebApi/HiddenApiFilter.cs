@@ -28,8 +28,9 @@ namespace MyFirstABP
         {
             swaggerDoc.paths.Remove("/api/AbpCache/Clear");
             swaggerDoc.paths.Remove("/api/AbpCache/ClearAll");
-            swaggerDoc.paths.Remove("/api/AbpServiceProxies");
-            swaggerDoc.paths.Remove("/api/TypeScript");
+            swaggerDoc.paths.Remove("/api/AbpServiceProxies/Get");
+            swaggerDoc.paths.Remove("/api/AbpServiceProxies/GetAll");
+            swaggerDoc.paths.Remove("/api/TypeScript/Get");
             foreach (ApiDescription apiDescription in apiExplorer.ApiDescriptions)
             {
                 if (apiDescription.GetControllerAndActionAttributes<HiddenApiAttribute>().Count() > 0)
