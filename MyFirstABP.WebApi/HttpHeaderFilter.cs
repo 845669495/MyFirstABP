@@ -15,15 +15,9 @@ namespace MyFirstABP
         public void Apply(Operation operation, SchemaRegistry schemaRegistry, ApiDescription apiDescription)
         {
             if (operation.parameters == null) operation.parameters = new List<Parameter>();
-            //判断是否添加权限过滤器
-
-            var a = apiDescription.ActionDescriptor.GetFilterPipeline();
-            var b = apiDescription.ActionDescriptor.GetFilters();
-            var c = apiDescription.ActionDescriptor.GetParameters();
 
             //判断是否添加权限过滤器
             var isAuthorized = apiDescription.ActionDescriptor.GetFilters().Any(filter => filter is IAuthorizationFilter);
-            //var isAuthorized = apiDescription.ActionDescriptor.GetCustomAttributes<AbpAuthorizeAttribute>().Count > 0;
             
             if (isAuthorized)
             {

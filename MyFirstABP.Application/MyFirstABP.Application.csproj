@@ -208,6 +208,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="HiddenApiAttribute.cs" />
     <Compile Include="Task\DTO\CreateTaskInput.cs" />
     <Compile Include="Task\DTO\GetTasksInput.cs" />
     <Compile Include="Task\DTO\GetTasksOutput.cs" />

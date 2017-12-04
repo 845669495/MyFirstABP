@@ -23,6 +23,7 @@ namespace MyFirstABP
             //可以通过http://xxx/api/services/app/Task/GetTasks这样的路由地址进行调用。
             Configuration.Modules.AbpWebApi().DynamicApiControllerBuilder
                 .ForAll<IApplicationService>(typeof(MyFirstABPApplicationModule).Assembly, "app")
+                .Where(p => p.GetCustomAttributes<HiddenApiAttribute>().Count() == 0)
                 .Build();
 
             //检测到未授权的请求时返回json错误信息

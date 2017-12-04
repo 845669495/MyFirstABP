@@ -8,11 +8,6 @@ using System.Web.Http.Description;
 
 namespace MyFirstABP
 {
-    /// <summary>  
-    /// 隐藏接口标识，不生成到swagger文档展示  
-    /// </summary>  
-    [System.AttributeUsage(System.AttributeTargets.Method | System.AttributeTargets.Class)]
-    public class HiddenApiAttribute : System.Attribute { }
     /// <summary>
     /// 隐藏接口，不生成到swagger文档展示
     /// </summary>
@@ -31,19 +26,19 @@ namespace MyFirstABP
             swaggerDoc.paths.Remove("/api/AbpServiceProxies/Get");
             swaggerDoc.paths.Remove("/api/AbpServiceProxies/GetAll");
             swaggerDoc.paths.Remove("/api/TypeScript/Get");
-            foreach (ApiDescription apiDescription in apiExplorer.ApiDescriptions)
-            {
-                if (apiDescription.GetControllerAndActionAttributes<HiddenApiAttribute>().Count() > 0)
-                {
-                    string key = "/" + apiDescription.RelativePath;
-                    if (key.Contains("?"))
-                    {
-                        int idx = key.IndexOf("?", System.StringComparison.Ordinal);
-                        key = key.Substring(0, idx);
-                    }
-                    swaggerDoc.paths.Remove(key);
-                }
-            }
+            //foreach (ApiDescription apiDescription in apiExplorer.ApiDescriptions)
+            //{
+            //    if (apiDescription.GetControllerAndActionAttributes<HiddenApiAttribute>().Count() > 0)
+            //    {
+            //        string key = "/" + apiDescription.RelativePath;
+            //        if (key.Contains("?"))
+            //        {
+            //            int idx = key.IndexOf("?", System.StringComparison.Ordinal);
+            //            key = key.Substring(0, idx);
+            //        }
+            //        swaggerDoc.paths.Remove(key);
+            //    }
+            //}
         }
     }
 }
